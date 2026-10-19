@@ -18,7 +18,8 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outli
 header { border-bottom: 1px solid var(--border); }
 .header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 24px; flex-wrap: wrap; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 750; font-size: 23px; }
-.brand-mark { width: 25px; height: 25px; border: 6px solid var(--accent); border-radius: 50%; }
+.brand-mark { width: 44px; height: 35px; object-fit: contain; flex-shrink: 0; }
+.hero-logo { display: block; width: 156px; height: auto; margin-bottom: 28px; }
 nav { display: flex; gap: 20px; flex-wrap: wrap; font-size: 15px; }
 nav a { color: var(--muted); text-decoration: none; }
 nav a[aria-current="page"] { color: var(--accent); }

@@ -3,6 +3,10 @@
 Static pages for GitHub Pages. No backend, package installation, JavaScript,
 analytics, or build step is required.
 
+The header and home page use KinAround's approved family-heart SVG, copied from
+the app's production brand artwork. PNG browser and Apple touch icons are
+resized from the production app icon. All artwork is local under `assets/`.
+
 ## Before publishing
 
 The pages are grounded in the app code reviewed on October 19, 2026.
