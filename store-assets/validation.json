@@ -1,0 +1,687 @@
+{
+  "png_count": 85,
+  "screenshots": 68,
+  "headers": 2,
+  "files": [
+    {
+      "file": "duo-preview.png",
+      "width": 1800,
+      "height": 1200,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "headers/header-3840x1646.png",
+      "width": 3840,
+      "height": 1646,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "headers/header-5244x2950.png",
+      "width": 5244,
+      "height": 2950,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "portraits/alex-parker.png",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "portraits/jamie-parker.png",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "portraits/sam-parker.png",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "preview.png",
+      "width": 1800,
+      "height": 1080,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/ipad-13/01-map.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/ipad-13/02-detail.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/ipad-13/03-places.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/ipad-13/04-circles.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/ipad-13/05-settings.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/iphone-large/01-map.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/iphone-large/02-detail.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/iphone-large/03-places.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/iphone-large/04-circles.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "raw/iphone-large/05-settings.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-10.5/01-map.png",
+      "width": 1668,
+      "height": 2224,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-10.5/02-detail.png",
+      "width": 1668,
+      "height": 2224,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-10.5/03-places.png",
+      "width": 1668,
+      "height": 2224,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-10.5/04-circles.png",
+      "width": 1668,
+      "height": 2224,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-10.5/05-settings.png",
+      "width": 1668,
+      "height": 2224,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-11/01-map.png",
+      "width": 1668,
+      "height": 2420,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-11/02-detail.png",
+      "width": 1668,
+      "height": 2420,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-11/03-places.png",
+      "width": 1668,
+      "height": 2420,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-11/04-circles.png",
+      "width": 1668,
+      "height": 2420,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-11/05-settings.png",
+      "width": 1668,
+      "height": 2420,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-12.9/01-map.png",
+      "width": 2048,
+      "height": 2732,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-12.9/02-detail.png",
+      "width": 2048,
+      "height": 2732,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-12.9/03-places.png",
+      "width": 2048,
+      "height": 2732,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-12.9/04-circles.png",
+      "width": 2048,
+      "height": 2732,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-12.9/05-settings.png",
+      "width": 2048,
+      "height": 2732,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-13/01-map.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-13/02-detail.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-13/03-places.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-13/04-circles.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-13/05-settings.png",
+      "width": 2064,
+      "height": 2752,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-9.7/01-map.png",
+      "width": 1536,
+      "height": 2048,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-9.7/02-detail.png",
+      "width": 1536,
+      "height": 2048,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-9.7/03-places.png",
+      "width": 1536,
+      "height": 2048,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-9.7/04-circles.png",
+      "width": 1536,
+      "height": 2048,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/ipad-9.7/05-settings.png",
+      "width": 1536,
+      "height": 2048,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-inner/01-map.png",
+      "width": 2007,
+      "height": 2853,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-inner/02-detail.png",
+      "width": 2007,
+      "height": 2853,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-inner/03-places.png",
+      "width": 2007,
+      "height": 2853,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-inner/04-circles.png",
+      "width": 2007,
+      "height": 2853,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-inner/05-settings.png",
+      "width": 2007,
+      "height": 2853,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-outer/01-map.png",
+      "width": 1398,
+      "height": 2034,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-outer/02-detail.png",
+      "width": 1398,
+      "height": 2034,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-outer/03-places.png",
+      "width": 1398,
+      "height": 2034,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-outer/04-circles.png",
+      "width": 1398,
+      "height": 2034,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-duo-outer/05-settings.png",
+      "width": 1398,
+      "height": 2034,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-large/01-map.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-large/02-detail.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-large/03-places.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-large/04-circles.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-large/05-settings.png",
+      "width": 1320,
+      "height": 2868,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-medium/01-map.png",
+      "width": 1206,
+      "height": 2622,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-medium/02-detail.png",
+      "width": 1206,
+      "height": 2622,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-medium/03-places.png",
+      "width": 1206,
+      "height": 2622,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-medium/04-circles.png",
+      "width": 1206,
+      "height": 2622,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-dynamic-island-medium/05-settings.png",
+      "width": 1206,
+      "height": 2622,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-large/01-map.png",
+      "width": 1284,
+      "height": 2778,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-large/02-detail.png",
+      "width": 1284,
+      "height": 2778,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-large/03-places.png",
+      "width": 1284,
+      "height": 2778,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-large/04-circles.png",
+      "width": 1284,
+      "height": 2778,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-large/05-settings.png",
+      "width": 1284,
+      "height": 2778,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-medium/01-map.png",
+      "width": 1170,
+      "height": 2532,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-medium/02-detail.png",
+      "width": 1170,
+      "height": 2532,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-medium/03-places.png",
+      "width": 1170,
+      "height": 2532,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-medium/04-circles.png",
+      "width": 1170,
+      "height": 2532,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-face-id-medium/05-settings.png",
+      "width": 1170,
+      "height": 2532,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-large/01-map.png",
+      "width": 1242,
+      "height": 2208,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-large/02-detail.png",
+      "width": 1242,
+      "height": 2208,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-large/03-places.png",
+      "width": 1242,
+      "height": 2208,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-large/04-circles.png",
+      "width": 1242,
+      "height": 2208,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-large/05-settings.png",
+      "width": 1242,
+      "height": 2208,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-medium/01-map.png",
+      "width": 750,
+      "height": 1334,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-medium/02-detail.png",
+      "width": 750,
+      "height": 1334,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-medium/03-places.png",
+      "width": 750,
+      "height": 1334,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-medium/04-circles.png",
+      "width": 750,
+      "height": 1334,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/iphone-home-button-medium/05-settings.png",
+      "width": 750,
+      "height": 1334,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/watch-ultra/01-map.png",
+      "width": 422,
+      "height": 514,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/watch-ultra/02-detail.png",
+      "width": 422,
+      "height": 514,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    },
+    {
+      "file": "screenshots/watch-ultra/03-devices.png",
+      "width": 422,
+      "height": 514,
+      "bit_depth": 8,
+      "color_type": 2,
+      "opaque": true
+    }
+  ]
+}

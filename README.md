@@ -26,9 +26,10 @@ particular:
    the owner's shared database, and notification signal metadata also uses the
    app's public CloudKit database. Do not claim everything is in a user's
    private iCloud or that signing out/uninstalling automatically removes it.
-3. Finish in-app account deletion and update `delete-account/index.html` with
-   the real steps and retention exceptions. A website request page does not
-   implement account deletion in the app.
+3. Validate Settings → Delete Account using disposable CloudKit test accounts,
+   including interrupted deletion, joined writable/read-only circles, and an
+   offline second device reconnecting. The page describes the implemented flow
+   and its minimal deletion marker and owner-controlled-copy exceptions.
 4. Confirm subscription features, prices/trial disclosures in the app, and
    Apple standard EULA selection. The site intentionally does not promise a
    particular price or that paid subscriptions are already available.

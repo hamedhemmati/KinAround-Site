@@ -1,0 +1,286 @@
+--- a/KinAround.xcodeproj/project.pbxproj
++++ b/KinAround.xcodeproj/project.pbxproj
+@@ -7,6 +7,12 @@
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
++        DP101 = {isa = PBXBuildFile; fileRef = DP001; };
++        DP102 = {isa = PBXBuildFile; fileRef = DP002; };
++        DP103 = {isa = PBXBuildFile; fileRef = DP003; };
++        DP201 = {isa = PBXBuildFile; fileRef = DP001; };
++        DP202 = {isa = PBXBuildFile; fileRef = DP002; };
++        DP203 = {isa = PBXBuildFile; fileRef = DP003; };
+         SK101 /* ApplePurchaseEvidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = SK001; };
+         SK102 /* ApplePurchaseEvidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = SK001; };
+         SK103 /* CirclePremiumStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = SK002; };
+@@ -138,6 +144,9 @@
+ /* End PBXCopyFilesBuildPhase section */
+ 
+ /* Begin PBXFileReference section */
++        DP001 = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DemoPortraits/alex-parker.png"; sourceTree = SOURCE_ROOT; };
++        DP002 = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DemoPortraits/jamie-parker.png"; sourceTree = SOURCE_ROOT; };
++        DP003 = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DemoPortraits/sam-parker.png"; sourceTree = SOURCE_ROOT; };
+         SK001 /* ApplePurchaseEvidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinAround/Models/ApplePurchaseEvidence.swift; sourceTree = SOURCE_ROOT; };
+         SK002 /* CirclePremiumStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinAround/Models/CirclePremiumStore.swift; sourceTree = SOURCE_ROOT; };
+         PM001 /* KinAround/PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KinAround/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
+@@ -584,6 +593,9 @@
+ 			isa = PBXResourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++                DP101,
++                DP102,
++                DP103,
+ 				PM101 /* PrivacyInfo.xcprivacy in Resources */,
+ 				KA2000000000000000000001 /* LaunchResources/KinAroundLaunchImage.png in Resources */,
+ 				KA2000000000000000000002 /* LaunchResources/KinAroundLaunchImage@2x.png in Resources */,
+@@ -604,6 +616,9 @@
+ 			isa = PBXResourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++                DP201,
++                DP202,
++                DP203,
+ 				PM102 /* PrivacyInfo.xcprivacy in Resources */,
+ 				KA1000000000000000000005 /* Assets.xcassets in Resources */,
+ 			);
+--- a/KinAround/App/KinAroundApp.swift
++++ b/KinAround/App/KinAroundApp.swift
+@@ -2,6 +2,19 @@
+ import CloudKit
+ 
+ @main
++struct CaptureApp: App {
++    @StateObject private var state = AppState()
++    var body: some Scene {
++        WindowGroup {
++            RootView()
++                .environmentObject(state)
++                .environmentObject(LocationService.shared)
++                .environmentObject(CloudKitService.shared)
++                .environmentObject(NotificationService.shared)
++        }
++    }
++}
++
+ struct KinAroundApp: App {
+     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+ 
+--- a/KinAround/App/AppState.swift
++++ b/KinAround/App/AppState.swift
+@@ -53,7 +53,15 @@
+     }
+ 
+     init() {
+-        restoreSessionIfValid()
++        isRestoring = false
++        isAuthenticated = true
++        currentUser = CloudKitService.shared.members.first
++        activeCircle = CloudKitService.shared.circle
++        familyMembers = CloudKitService.shared.members
++        cloudKitService = CloudKitService.shared
++        memberSince = Date(timeIntervalSince1970: 1751328000)
++        let screen = ProcessInfo.processInfo.environment["KINAROUND_CAPTURE_SCREEN"] ?? "map"
++        selectedTab = screen == "places" ? .places : screen == "circles" ? .circles : screen == "settings" ? .settings : .map
+     }
+ 
+     // MARK: - Session restore
+--- a/KinAround/Services/CloudKitService.swift
++++ b/KinAround/Services/CloudKitService.swift
+@@ -128,6 +128,30 @@
+     @Published private(set) var circleChangeSequence = 0
+ 
+     init() {
++        let sample = FamilyCircle.makeNew(name: "The Parkers")
++        circle = sample
++        circles = [sample]
++        let names = ["Alex Parker", "Jamie Parker", "Sam Parker"]
++        let coordinates = [(37.7694, -122.4862), (37.7722, -122.4838), (37.7678, -122.4812)]
++        members = names.enumerated().map { index, name in
++            let avatarURL = Bundle.main.url(forResource: ["alex-parker", "jamie-parker", "sam-parker"][index], withExtension: "png")!
++            var location = LocationUpdate(id: "sample-\(index)", latitude: coordinates[index].0,
++                longitude: coordinates[index].1, altitude: 0, speed: 0, horizontalAccuracy: 8,
++                ownerRecordName: "sample-user-\(index)", batteryLevel: [0.86, 0.72, 0.64][index],
++                avatarAsset: CKAsset(fileURL: avatarURL), placeName: ["Home", "Willow Library", "Maple School"][index])
++            location.deviceID = "sample-device-\(index)"
++            location.deviceName = index == 2 ? "Apple Watch" : "iPhone"
++            location.deviceModel = location.deviceName
++            location.sourceDeviceID = location.deviceID
++            return FamilyMember(id: CKRecord.ID(recordName: location.ownerRecordName, zoneID: sample.zoneID),
++                name: name, avatarURL: avatarURL, lastLocation: location, lastSeen: location.timestamp,
++                batteryLevel: location.batteryLevel, isCurrentUser: index == 0, devices: [location])
++        }
++        circleMembers = members
++        geofences = zip(["Home", "Willow Library", "Maple School"], coordinates).map { name, coordinate in
++            try! CircleGeofence(name: name, coordinate: CLLocationCoordinate2D(latitude: coordinate.0, longitude: coordinate.1))
++        }
++        return;
+         CirclePremiumStore.shared.accessDidExpire = { [weak self] in
+             guard let self, UserDefaults.standard.string(forKey: "appleUserID") != nil,
+                   !UserDefaults.standard.bool(forKey: "accountDeletionPending") else { return }
+@@ -442,6 +466,7 @@
+     }
+ 
+     func refreshGeofences(force: Bool = false) async {
++        return;
+         if geofenceSyncing {
+             if force { geofenceRefreshRequested = true }
+             return
+@@ -713,6 +738,7 @@
+     // MARK: - Fetch Members
+ 
+     func refreshMembers() async {
++        return;
+         guard let circle else { return }
+         if memberRefreshInProgress {
+             // A push during a fetch can describe changes newer than its
+@@ -775,6 +801,7 @@
+     // MARK: - Circle restoration (also used on background location relaunch)
+ 
+     func loadOrCreateCircle() async throws {
++        return;
+         try await AccountDataLifecycle.requireActive(in: privateDB, owner: myRecordName())
+         if let loadingCircle { return try await loadingCircle.value }
+         if circle != nil {
+@@ -932,6 +959,7 @@
+     // MARK: - Share
+ 
+     func refreshCircles() async throws {
++        return;
+         if let inventoryTask { return try await inventoryTask.value }
+         let generation = sessionGeneration
+         let task = Task { @MainActor in try await self.loadCircleInventory() }
+--- a/KinAround/Features/Map/MapView.swift
++++ b/KinAround/Features/Map/MapView.swift
+@@ -86,6 +86,7 @@
+         .ignoresSafeArea(edges: .top)
+         .mapScope(mapScope)
+         .task(id: viewingKey) {
++            return;
+             guard !viewingKey.isEmpty else { return }
+             let circle = ck.circle
+             await MapViewingDemand.shared.view(root: circle.map { ck.geofenceRoot(for: $0) },
+@@ -95,14 +96,11 @@
+             }
+         }
+         .task {
+-            LocationService.shared.requestPermission()
+-            do {
+-                try await ck.loadOrCreateCircle()
+-                try await ck.refreshCircles()
+-                do { try await ck.synchronizeDeviceSharing() }
+-                catch { circleError = error.localizedDescription }
+-                await ck.refreshMembers()
+-            } catch { circleError = error.localizedDescription }
++            fitDevices()
++            if ProcessInfo.processInfo.environment["KINAROUND_CAPTURE_SCREEN"] == "detail", mapPins.count > 1 {
++                try? await Task.sleep(for: .seconds(2))
++                showDevice(mapPins[1])
++            }
+         }
+         .alert("Unable to Complete Request", isPresented: Binding(
+             get: { circleError != nil },
+--- a/KinAround/Features/Places/PlacesView.swift
++++ b/KinAround/Features/Places/PlacesView.swift
+@@ -50,7 +50,6 @@
+                 await cloud.refreshGeofences(force: true)
+             }
+             .task {
+-                await NotificationService.shared.requestPermission()
+                 await push.refreshPermissionStatus()
+                 await cloud.refreshGeofences(force: true)
+             }
+--- a/KinAround/Features/Settings/SettingsView.swift
++++ b/KinAround/Features/Settings/SettingsView.swift
+@@ -165,6 +165,16 @@
+         .onAppear {
+             loadSavedAvatar()
+             Task {
++                devices = ["iPhone", "Apple Watch"].enumerated().map { index, name in
++                    let record = CKRecord(recordType: "DeviceSettings")
++                    record["deviceID"] = "sample-device-\(index)"
++                    record["deviceName"] = name
++                    record["deviceModel"] = name
++                    record["sharingEnabled"] = 1
++                    return DeviceSharing(record: record)
++                }
++                personalDeviceID = "sample-device-0"
++                return;
+                 do {
+                     if let policy = try await appState.cloudKitService?.synchronizeDeviceSharing() {
+                         sharingEnabled = policy.enabled
+--- a/KinAroundWatch/App/WatchAppState.swift
++++ b/KinAroundWatch/App/WatchAppState.swift
+@@ -94,6 +94,20 @@
+ 
+     override init() {
+         super.init()
++        let sample = WatchCircle(name: "The Parkers", zoneName: "SampleCircle", ownerName: CKCurrentUserDefaultName,
++            shareRecordName: nil, rootRecordName: "family-circle", isReadOnly: false)
++        circles = [sample]
++        selectedCircleID = sample.id
++        displayName = "Alex Parker"
++        hasCloudAccount = true
++        familyMembers = ["Alex Parker", "Jamie Parker", "Sam Parker"].enumerated().map { index, name in
++            WatchMember(id: "sample-\(index)", name: name, emoji: "person.fill", colorHex: "#B9483C",
++                latitude: [37.7694, 37.7722, 37.7678][index], longitude: [-122.4862, -122.4838, -122.4812][index],
++                lastSeen: Date(), batteryLevel: [0.86, 0.72, 0.64][index], placeName: ["Home", "Willow Library", "Maple School"][index],
++                avatarURL: Bundle.main.url(forResource: ["alex-parker", "jamie-parker", "sam-parker"][index], withExtension: "png"),
++                deviceID: "sample-device-\(index)", deviceName: index == 2 ? "Apple Watch" : "iPhone", deviceModel: index == 2 ? "Apple Watch" : "iPhone")
++        }
++        return;
+         CirclePremiumStore.shared.accessDidExpire = { [weak self] in
+             guard let self, !self.isDeletingAccount else { return }
+             CircleGeofenceTracker.shared.suspendReporting()
+@@ -119,6 +133,7 @@
+     }
+ 
+     func requestUpdate() {
++        return;
+         if refreshTask != nil { refreshAgain = true; return }
+         refreshTask = Task { @MainActor in
+             repeat {
+--- a/KinAroundWatch/App/KinAroundWatchApp.swift
++++ b/KinAroundWatch/App/KinAroundWatchApp.swift
+@@ -10,7 +10,13 @@
+ 
+     var body: some Scene {
+         WindowGroup {
+-            WatchRootView()
++            Group {
++                if ProcessInfo.processInfo.environment["KINAROUND_CAPTURE_SCREEN"] == "devices" {
++                    NavigationStack { WatchMemberListView() }
++                } else {
++                    WatchRootView()
++                }
++            }
+                 .environmentObject(watchState)
+                 .tint(BrandPalette.primary)
+                 .task {
+--- a/KinAroundWatch/Views/WatchRootView.swift
++++ b/KinAroundWatch/Views/WatchRootView.swift
+@@ -5,8 +5,8 @@
+     @EnvironmentObject var watchState: WatchAppState
+     @Environment(\.scenePhase) private var scenePhase
+     @State private var position: MapCameraPosition = .region(
+-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+-                           span: MKCoordinateSpan(latitudeDelta: 160, longitudeDelta: 360)))
++        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.7700, longitude: -122.4838),
++                           span: MKCoordinateSpan(latitudeDelta: 0.012, longitudeDelta: 0.012)))
+     @State private var selectedDevice: WatchMember?
+     @State private var showingMenu = false
+     @State private var fittedCircle: String?
+@@ -117,10 +117,11 @@
+                 }
+             }
+         }
+-        .onAppear { watchState.requestUpdate() }
++        .onAppear { }
+         .task(id: viewingKey) {
+-            guard !viewingKey.isEmpty else { return }
+-            await watchState.viewMap()
++            if ProcessInfo.processInfo.environment["KINAROUND_CAPTURE_SCREEN"] == "detail" {
++                selectedDevice = watchState.familyMembers[1]
++            }
+         }
+     }
+ 

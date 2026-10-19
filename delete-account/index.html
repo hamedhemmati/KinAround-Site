@@ -13,7 +13,7 @@
   <header><div class="container header"><a class="brand" href="../"><img class="brand-mark" src="../assets/kinaround-logo.svg" width="44" height="35" alt="">KinAround</a><nav aria-label="Main navigation"><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../support/">Support</a></nav></div></header>
   <main id="main" class="container reading">
     <p class="eyebrow">Your choices</p><h1>Your data &amp; deletion</h1>
-    <p class="notice"><strong>Draft:</strong> the app does not yet have a complete in-app account-deletion flow. This page must be updated with the implemented release flow before launch.</p>
+    <p class="notice">Deleting your account removes circles you own for everyone. It does not cancel an Apple subscription.</p>
     <h2>Stop future sharing</h2>
     <p>Open KinAround on the reporting device and disable its location sharing in the device details. You can also revoke KinAround’s location permission in system settings. Settings changes on other devices may need time and connectivity to sync.</p>
     <p>Stopping sharing is not the same as deleting stored data. Previous activity, shared copies, or notification screenshots can remain.</p>
@@ -23,9 +23,16 @@
     <p>Open Settings → Manage Devices, choose the obsolete registration, and select Remove Device. If it is your selected personal device, select another device first. Removal disables that registration and attempts to retract its location records from writable circles. A disabled registration marker is retained to prevent that old installation from immediately registering again.</p>
     <h2>Manage circles and places</h2>
     <p>Use circle management to leave circles or manage owned circles. Owners can delete a place from its detail screen. These actions do not automatically delete every private record or recipient-held copy associated with your account.</p>
-    <h2>Request account-data deletion</h2>
+    <h2>Delete your account in the app</h2>
+    <p>Open KinAround, choose Settings → Delete Account on your iPhone or Watch, read the confirmation, then choose Delete Account again. Keep the app open and connected to iCloud until it reports completion. The iPhone returns to the sign-in screen.</p>
+    <p>The app stops location reporting on the device performing deletion, removes your private profile, movement history and device registrations, deletes your owned circles and their places and activity, and leaves joined circles. Before leaving writable circles, it removes your location records, place activity, and member-specific place settings. It also removes public notification signals created by your account and the app’s notification subscriptions.</p>
+    <p>If deletion does not finish, sharing on that device remains stopped. Choose Delete Account again to retry. A failed or interrupted deletion must not be treated as complete.</p>
+    <h2>What can remain</h2>
+    <p>A minimal marker remains in your private iCloud database to prevent previously signed-in devices from silently recreating the deleted account. It contains the deletion state, not your name, photo, location history or device list. Signing in explicitly with Apple on iPhone, or choosing Start New Account on Watch, after completed deletion can create a fresh KinAround account.</p>
+    <p>Read-only circle data is controlled by the circle owner. Records the app no longer has permission to edit, previously left circles, and copies saved by recipients can remain; contact the circle owner about those copies. Apple may also retain service records under its own policies. Deletion does not remove your Apple Account or unrelated iCloud information.</p>
+    <h2>Get help with deletion</h2>
     <p>Email <a href="mailto:help@lowgear.ai">help@lowgear.ai</a> with the subject “KinAround data deletion.” We will explain the available removal steps and any identity verification needed. Do not send your Apple Account password.</p>
-    <p>Some data is in your private iCloud storage and must be removed using an authenticated app flow; the operator cannot assume unrestricted access to that storage. An in-app deletion flow is being prepared for release. Its steps, affected data, and any retained records will be described here when available.</p>
+    <p>Your private iCloud records must be removed through an authenticated app flow; the developer does not have unrestricted access to that storage.</p>
     <h2>Handle subscriptions separately</h2>
     <p>Account-data deletion, uninstalling, and signing out do not cancel an Apple subscription. Cancel renewal through your Apple Account subscription settings. Deleting KinAround data does not delete your Apple Account or unrelated iCloud information.</p>
     <h2>Questions</h2>
